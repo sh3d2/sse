@@ -1,4 +1,7 @@
 # Simple sse chat
+
+[http://www.w3schools.com/html/html5_serversentevents.asp]()
+
 ## Requirements
 `nodejs > 6.0`
 
