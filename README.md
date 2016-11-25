@@ -13,4 +13,4 @@ npm start
 ```
 
 ## Use
-open http://localhost:3000/ in browser 
+open [http://localhost:3000/] in browser 
