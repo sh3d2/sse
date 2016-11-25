@@ -21,18 +21,16 @@ app.get('/events', function (req, res) {
         'Connection': 'keep-alive'
     });
 
-    emitter.on('message', (message) => {
+    let send = (message) => {
+        res.write('data: ' + message + '\n\n');
+    }
 
-            res.write('data: ' + message + '\n\n');
-    })
-//     setInterval(() => {
-//         request('http://api.icndb.com/jokes/random', function (error, response, body) {
-//             var joke = JSON.parse(body);
-//             res.write('id: ' + joke.value.id + '\n');
-//             res.write('event: ' + joke.type + '\n');
-//             res.write('data: ' + JSON.stringify(joke.value.joke) + '\n\n');
-//         });
-//     }, 2000);
+    emitter.on('message', send);
+
+    res.on('close', () => {
+        console.log('closing');
+        emitter.removeEventListener('message', send);
+    });
 });
 
 app.post('/message', (req, res) => {
@@ -44,8 +42,5 @@ app.post('/message', (req, res) => {
 
 
 app.listen(3000, function () {
-    console.log('listening on localhost:3000');
+
 });
-/**
- * Created by kkaczmarek on 23.11.2016.
- */

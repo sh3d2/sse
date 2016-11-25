@@ -1,4 +1,16 @@
-# to run 
+# Simple sse chat
+## Requirements
+`nodejs > 6.0`
+
+## Installation
 ```
-node event.js
+npm install
 ```
+
+## Run
+```
+npm start
+```
+
+## Use
+open http://localhost:3000/ in browser 

@@ -67,15 +67,6 @@
             console.log(event);
             $('#messages').append($('<li>').text(event.data));
         }, false);
-
-        eventsource.addEventListener('error', function (event) {
-            if (event.target.readyState == EventSource.CLOSED) {
-                document.getElementById("container").innerHTML = 'Disconnected';
-            }
-            else if (event.target.readyState == EventSource.CONNECTING) {
-                document.getElementById("container").innerHTML = 'Connecting...';
-            }
-        }, false)
     }
     else {
         // fallback to long polling
