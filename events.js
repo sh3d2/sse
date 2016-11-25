@@ -12,7 +12,7 @@ var bodyParser = require('body-parser')
 app.use( bodyParser.text());
 
 app.get('/', function(req, res){
-    res.sendFile(__dirname + '/socketio.html');
+    res.sendFile(__dirname + '/index.html');
 });
 app.get('/events', function (req, res) {
     res.writeHead(200, {
